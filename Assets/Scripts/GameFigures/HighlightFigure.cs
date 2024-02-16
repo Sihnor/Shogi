@@ -6,23 +6,46 @@ namespace GameFigures
     public class HighlightFigure : MonoBehaviour
     {
         private Color DefaultColor;
+        private bool IsSelected;
 
         private void Awake()
         {
-            Renderer renderer = GetComponent<Renderer>();
-            this.DefaultColor = renderer.material.color;
+            Renderer component = GetComponent<Renderer>();
+            this.DefaultColor = component.material.color;
+            
+            EventManager.Instance.FOnPieceSelected += OnPieceSelected;
         }
 
         private void OnMouseEnter()
         {
-            Renderer renderer = GetComponent<Renderer>();
-            renderer.material.color = Color.grey;
+            if (this.IsSelected) return;
+            
+            Renderer component = GetComponent<Renderer>();
+            component.material.color = new Color(.5f, .5f, .5f, 1);
         }
 
         private void OnMouseExit()
         {
-            Renderer renderer = GetComponent<Renderer>();
-            renderer.material.color = this.DefaultColor;
+            if (this.IsSelected) return;
+            
+            Renderer component = GetComponent<Renderer>();
+            component.material.color = this.DefaultColor;
+        }
+
+        private void OnMouseUp()
+        {
+            EventManager.Instance.OnPieceSelected();
+            
+            this.IsSelected = !this.IsSelected;
+            Renderer component = GetComponent<Renderer>();
+            component.material.color = this.IsSelected ? new Color(.4f, .4f, .4f, 1) : this.DefaultColor;
+        }
+        
+        private void OnPieceSelected()
+        {
+            this.IsSelected = false;
+            Renderer component = GetComponent<Renderer>();
+            component.material.color = this.DefaultColor;
         }
     }
 }

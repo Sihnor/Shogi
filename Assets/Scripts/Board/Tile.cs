@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    [SerializeField] private Renderer renderer;
+    [SerializeField] private Renderer TileRenderer;
+    private Color OriginalColor;
+    private Color CurrentColor;
     
     private int x;
     private int y;
-    private Color color;
     
     public int GetX()
     {
@@ -20,22 +21,33 @@ public class Tile : MonoBehaviour
         return this.y;
     }
     
-    public Color GetColor()
+    public Color GetCurrentColor()
     {
-        return this.color;
+        return this.CurrentColor;
     }
     
     // Start is called before the first frame update
     void Start()
     {
-        this.renderer.material.color = this.color;
+        this.TileRenderer.material.color = this.CurrentColor;
     }
     
     public void InitVariables(int x, int y, Color color)
     {
         this.x = x;
         this.y = y;
-        this.color = color;
+        this.OriginalColor = color;
+        this.CurrentColor = color;
+    }
+
+    public void SetColor(Color color)
+    {
+        this.TileRenderer.material.color = color;
+    }
+    
+    public void ResetColor()
+    {
+        this.TileRenderer.material.color = this.OriginalColor;
     }
     
     public void OnMouseDown()

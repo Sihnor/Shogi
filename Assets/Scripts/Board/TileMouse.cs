@@ -21,7 +21,7 @@ public class TileMouse : MonoBehaviour
         if (!this.CanBeHighlighted) return;
         
         Renderer renderer = GetComponent<Renderer>();
-        renderer.material.color = this.TileDetails.GetColor();
+        renderer.material.color = this.TileDetails.GetCurrentColor();
     }
     
     public void OnMouseUp()

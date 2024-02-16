@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f61bbd245125af4f89a0f2964c8ffe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer: {fileID: 6105155566384605246}
+  TileRenderer: {fileID: 6105155566384605246}
 --- !u!1 &7545029228314313204
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,3 +272,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TileDetails: {fileID: 1269946205364674244}
+  CanBeHighlighted: 0

@@ -8,6 +8,7 @@ public class EventManager : MonoBehaviour
     public static EventManager Instance { get; private set; }
     
     public event Action<bool> FOnOverViewModeChange;
+    public event Action FOnPieceSelected;
 
     private void Awake()
     {
@@ -23,5 +24,10 @@ public class EventManager : MonoBehaviour
     public void OnOverViewModeChange(bool overviewMode)
     {
         FOnOverViewModeChange?.Invoke(overviewMode);
+    }
+    
+    public void OnPieceSelected()
+    {
+        FOnPieceSelected?.Invoke();
     }
 }
