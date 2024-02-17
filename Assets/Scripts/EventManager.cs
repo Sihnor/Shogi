@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enums;
+using GameFigures;
+using Structs;
 using UnityEngine;
 
 public class EventManager : MonoBehaviour
@@ -8,7 +11,7 @@ public class EventManager : MonoBehaviour
     public static EventManager Instance { get; private set; }
     
     public event Action<bool> FOnOverViewModeChange;
-    public event Action FOnPieceSelected;
+    public event Action<int, int, SFigureMovementSet, EFigureColor> FOnPieceSelected;
 
     private void Awake()
     {
@@ -26,8 +29,8 @@ public class EventManager : MonoBehaviour
         FOnOverViewModeChange?.Invoke(overviewMode);
     }
     
-    public void OnPieceSelected()
+    public void OnPieceSelected(int x, int y, SFigureMovementSet movementSet, EFigureColor figureColor)
     {
-        FOnPieceSelected?.Invoke();
+        FOnPieceSelected?.Invoke(x, y, movementSet, figureColor);
     }
 }

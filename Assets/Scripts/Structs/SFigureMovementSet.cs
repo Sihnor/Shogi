@@ -1,4 +1,5 @@
-﻿using Enums;
+﻿using System.Collections.Generic;
+using Enums;
 
 namespace Structs
 {
@@ -15,5 +16,17 @@ namespace Structs
         public EMovementType MovementTypeSw;
         public EMovementType MovementTypeS;
         public EMovementType MovementTypeSe;
+
+        public IEnumerable<EMovementType> GetEnumerator()
+        {
+            yield return this.MovementTypeNw;
+            yield return this.MovementTypeN;
+            yield return this.MovementTypeNe;
+            yield return this.MovementTypeW;
+            yield return this.MovementTypeE;
+            yield return this.MovementTypeSw;
+            yield return this.MovementTypeS;
+            yield return this.MovementTypeSe;
+        }
     }
 }
