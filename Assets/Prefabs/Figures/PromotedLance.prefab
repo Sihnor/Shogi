@@ -45,8 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ecedb5aee046d4a8890442097be9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentX: 0
-  CurrentY: 0
+  FigureColor: 0
 --- !u!1001 &2363548175961311642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -220,3 +219,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6000776bdf44b97a50f93deba92cff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FigureScript: {fileID: 1510665586342271265}

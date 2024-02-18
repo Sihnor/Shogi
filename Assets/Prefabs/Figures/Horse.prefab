@@ -45,8 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8822a7e20a34ba78537e26e21c2c2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentX: 0
-  CurrentY: 0
+  FigureColor: 0
 --- !u!1001 &8756950126822216974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -214,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6000776bdf44b97a50f93deba92cff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FigureScript: {fileID: 4429155199179931940}
 --- !u!4 &9082729944147145445 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 16c7b38faa23d7247be46123b665cf48,

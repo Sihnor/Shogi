@@ -13,6 +13,9 @@ public class EventManager : MonoBehaviour
     public event Action<bool> FOnOverViewModeChange;
     public event Action<int, int, SFigureMovementSet, EFigureColor> FOnPieceSelected;
 
+    public event Action<int, int> FOnSelectedTile;  
+    public event Action FOnPieceMoved;
+    
     private void Awake()
     {
         if (Instance != null) return;
@@ -32,5 +35,15 @@ public class EventManager : MonoBehaviour
     public void OnPieceSelected(int x, int y, SFigureMovementSet movementSet, EFigureColor figureColor)
     {
         FOnPieceSelected?.Invoke(x, y, movementSet, figureColor);
+    }
+    
+    public void OnSelectedTile(int x, int y)
+    {
+        FOnSelectedTile?.Invoke(x, y);
+    }
+    
+    public void OnPieceMoved()
+    {
+        FOnPieceMoved?.Invoke();
     }
 }

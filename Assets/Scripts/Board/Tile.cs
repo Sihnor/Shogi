@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,17 +9,18 @@ public class Tile : MonoBehaviour
     private Color OriginalColor;
     private Color CurrentColor;
     
-    private int x;
-    private int y;
+    private int XCoordinate;
+    private int YCoordinate;
+    private bool IsHighlighted;
     
     public int GetX()
     {
-        return this.x;
+        return this.XCoordinate;
     }
     
     public int GetY()
     {
-        return this.y;
+        return this.YCoordinate;
     }
     
     public Color GetCurrentColor()
@@ -26,6 +28,16 @@ public class Tile : MonoBehaviour
         return this.CurrentColor;
     }
     
+    public bool GetIsHighlighted()
+    {
+        return this.IsHighlighted;
+    }
+
+    private void Awake()
+    {
+        EventManager.Instance.FOnPieceMoved += ResetColor;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,54 +46,22 @@ public class Tile : MonoBehaviour
     
     public void InitVariables(int x, int y, Color color)
     {
-        this.x = x;
-        this.y = y;
+        this.XCoordinate = x;
+        this.YCoordinate = y;
         this.OriginalColor = color;
         this.CurrentColor = color;
     }
 
-    public void SetColor(Color color)
+    public void HighlightTile(Color color)
     {
         this.TileRenderer.material.color = color;
+        this.IsHighlighted = true;
     }
     
     public void ResetColor()
     {
         this.TileRenderer.material.color = this.OriginalColor;
+        this.IsHighlighted = false;
     }
     
-    public void OnMouseDown()
-    {
-        Debug.Log("Tile clicked: " + this.x + ", " + this.y);
-    }
-    
-    public void OnMouseEnter()
-    {
-        Debug.Log("Mouse entered: " + this.x + ", " + this.y);
-    }
-    
-    public void OnMouseExit()
-    {
-        Debug.Log("Mouse exited: " + this.x + ", " + this.y);
-    }
-    
-    public void OnMouseUp()
-    {
-        Debug.Log("Mouse up: " + this.x + ", " + this.y);
-    }
-    
-    public void OnMouseOver()
-    {
-        Debug.Log("Mouse over: " + this.x + ", " + this.y);
-    }
-    
-    public void OnMouseUpAsButton()
-    {
-        Debug.Log("Mouse up as button: " + this.x + ", " + this.y);
-    }
-    
-    public void OnMouseDrag()
-    {
-        Debug.Log("Mouse drag: " + this.x + ", " + this.y);
-    }
 }

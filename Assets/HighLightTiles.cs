@@ -326,10 +326,9 @@ public class HighLightTiles : MonoBehaviour
         return possibleMoves;
     }
 
-
     private void HighLightBoardTile(int x, int y)
     {
-        this.BoardTiles[x][y].GetComponent<Tile>().SetColor(new Color(0.523f, 0.796f, 0.445f, 1));
+        this.BoardTiles[x][y].GetComponent<Tile>().HighlightTile(new Color(0.523f, 0.796f, 0.445f, 1));
     }
 
     private void ResetHighLightBoardTile()

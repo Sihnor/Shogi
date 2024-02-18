@@ -13,8 +13,8 @@ namespace GameFigures
     
         protected SFigureMovementSet MovementSet = new SFigureMovementSet();
 
-        public int CurrentX;
-        public int CurrentY;
+        protected int CurrentX;
+        protected int CurrentY;
         
         public int GetCurrentX()
         {
@@ -51,6 +51,14 @@ namespace GameFigures
             this.CurrentX = x;
             this.CurrentY = y;
             this.FigureColor = figureColor;
+        }
+        
+        public void MoveFigure(int x, int y)
+        {
+            this.CurrentX = x;
+            this.CurrentY = y;
+            
+            transform.position = new Vector3(x, 0.1f, y);
         }
     }
 }
